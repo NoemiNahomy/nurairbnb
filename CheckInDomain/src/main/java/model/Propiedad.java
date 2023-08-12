@@ -32,11 +32,11 @@ public class Propiedad extends AggregateRoot {
     public Propiedad() {
         this.tipoPropiedad = new TipoPropiedad();
         this.caracteristicasPropiedades = new ArrayList<>();
-        this.Id = UUID.randomUUID();
+        this.Id = id;
     }
 
     public Propiedad(UUID id,String nombre, String estado, double precio) throws BusinessRuleValidationException {
-        this.Id = UUID.randomUUID();
+        this.Id = id;
         this.nombre = nombre;
         if (estado == "HABILITADO") this.estado = Estado.HABILITADO; else this.estado =
                 Estado.INHABILITADO;

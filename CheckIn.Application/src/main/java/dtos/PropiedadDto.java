@@ -10,6 +10,7 @@ public class PropiedadDto {
   public PropiedadDto() {}
 
   public PropiedadDto(UUID id, String nombre, String estado, double precio) {
+    this.id = id;
     this.nombre = nombre;
     this.estado = estado;
     this.precio = precio;

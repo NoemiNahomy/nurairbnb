@@ -34,6 +34,6 @@ public class MetodoPagoUtils {
 
   public static MetodoPago jpaToBaggage(MetodoPagoJpaModel jpaModel)
     throws BusinessRuleValidationException {
-    return new MetodoPago(jpaModel.getDetalle(), jpaModel.getTipo());
+    return new MetodoPago(jpaModel.getId(),jpaModel.getDetalle(), jpaModel.getTipo());
   }
 }

@@ -10,9 +10,9 @@ public class MetodoPago extends Entity {
   private String detalle;
   private MetodoTipo type;
 
-  public MetodoPago(String detalle, String tipo)
+  public MetodoPago(UUID id, String detalle, String tipo)
     throws BusinessRuleValidationException {
-    this.id = UUID.randomUUID();
+    this.id = id;
     this.detalle = detalle;
     if (tipo == "T") type = MetodoTipo.TARJETA; else type =
       MetodoTipo.PAYPAL;

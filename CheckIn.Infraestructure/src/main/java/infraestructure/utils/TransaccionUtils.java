@@ -5,12 +5,12 @@ import core.BusinessRuleValidationException;
 import infraestructure.model.TransactionJpaModel;
 import java.util.Collections;
 import java.util.List;
-import model.Transaccion;
+import model.TransaccionPago;
 
 @Generated
 public class TransaccionUtils {
 
-  public static TransactionJpaModel seatToJpaEntity(Transaccion seat) {
+  public static TransactionJpaModel seatToJpaEntity(TransaccionPago seat) {
     if (seat == null) return null;
     TransactionJpaModel seatJpaModel = new TransactionJpaModel();
     seatJpaModel.setDescripcion(seat.getDescripcion());
@@ -20,14 +20,14 @@ public class TransaccionUtils {
     return seatJpaModel;
   }
 
-  public static List<TransactionJpaModel> seatsToJpaEntities(List<Transaccion> seats) {
+  public static List<TransactionJpaModel> seatsToJpaEntities(List<TransaccionPago> seats) {
     if (seats == null) return Collections.emptyList();
     return seats.stream().map(TransaccionUtils::seatToJpaEntity).toList();
   }
 
-  public static Transaccion jpaModelToSeat(TransactionJpaModel jpaModel)
+  public static TransaccionPago jpaModelToSeat(TransactionJpaModel jpaModel)
     throws BusinessRuleValidationException {
-    return new Transaccion(
+    return new TransaccionPago(
       jpaModel.getCode(),
       jpaModel.getDescripcion(),
       jpaModel.getMonto()

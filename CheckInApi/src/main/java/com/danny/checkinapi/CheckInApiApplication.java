@@ -60,10 +60,6 @@ public class CheckInApiApplication {
     return new PersonaJpaRepository();
   }
 
- @Bean(name = "seatRepository")
-  public TransactionRepository seatRepository() {
-    return new TransactionJpaRepository();
-  }
 
   @Bean(name = "metodoPagoRepository")
   public MetodoPagoRepository metodoPagoRepository() {

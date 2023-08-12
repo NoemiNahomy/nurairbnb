@@ -10,8 +10,8 @@ public class MetodoPagoDto {
 
   public MetodoPagoDto() {}
 
-  public MetodoPagoDto(String detalle, String tipo) {
-
+  public MetodoPagoDto(UUID id,String detalle, String tipo) {
+    this.id = id;
     this.detalle = detalle;
     this.tipo = tipo;
   }

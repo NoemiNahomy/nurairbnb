@@ -1,14 +1,14 @@
 package dtos;
 
-public class TransactionDto {
+public class TransactionPagoDto {
 
   public String code;
   public String descripcion;
   public double monto;
 
-  public TransactionDto() {}
+  public TransactionPagoDto() {}
 
-  public TransactionDto(String code, String descripcion, double monto) {
+  public TransactionPagoDto(String code, String descripcion, double monto) {
     this.code = code;
     this.descripcion = descripcion;
     this.monto = monto;

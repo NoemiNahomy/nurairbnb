@@ -2,14 +2,14 @@ package factories.transaccion;
 
 import core.BusinessRuleValidationException;
 import java.util.UUID;
-import model.Transaccion;
+import model.TransaccionPago;
 
-public class CreateSeat implements TransaccionFactory {
+public class TransactionPagoFactory implements TransaccionPagoFactory {
 
   @Override
-  public Transaccion create(String code, String descripcion, double monto)
+  public TransaccionPago create(String code, String descripcion, double monto)
     throws BusinessRuleValidationException {
-    return new Transaccion(
+    return new TransaccionPago(
       UUID.fromString(code),
       descripcion,
       monto

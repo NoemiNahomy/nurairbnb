@@ -6,6 +6,7 @@ import infraestructure.utils.MetodoPagoUtils;
 import model.MetodoPago;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.util.Streamable;
 import org.springframework.stereotype.Repository;
 import repositories.MetodoPagoRepository;
 
@@ -44,6 +45,18 @@ public class MetodoPagoJpaRepository implements MetodoPagoRepository {
       baggages.add(MetodoPagoUtils.jpaToBaggage(jpaModel));
     }
     return baggages;
+  }
+
+  @Override
+  public List<MetodoPago> getAll() throws BusinessRuleValidationException {
+    List<MetodoPagoJpaModel> jpaModels = Streamable
+            .of(baggageCrudRepository.findAll())
+            .toList();
+    List<MetodoPago> passengers = new ArrayList<>();
+    for (MetodoPagoJpaModel jpaModel : jpaModels) {
+      passengers.add(MetodoPagoUtils.jpaToBaggage(jpaModel));
+    }
+    return passengers;
   }
 
   public void setBaggageCrudRepository(
