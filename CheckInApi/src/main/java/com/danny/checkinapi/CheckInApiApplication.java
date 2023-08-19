@@ -9,7 +9,6 @@ import infraestructure.repositories.propiedad.PropiedadJpaRepository;
 import infraestructure.repositories.MetodoPago.MetodoPagoJpaRepository;
 import infraestructure.repositories.check.in.CheckInJpaRepository;
 import infraestructure.repositories.persona.PersonaJpaRepository;
-import infraestructure.repositories.transaccion.TransactionJpaRepository;
 import infraestructure.repositories.tipoPropiedad.TipoPropiedadJpaRepository;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;

@@ -55,7 +55,7 @@ video [Microservicio](https://drive.google.com/file/d/1YypSKAEk6OrXtfCyt8jMgdv5Y
     "/transacction/create": {
       "post": {
         "tags": [
-          "transacction-controller"
+          "transacction-controllers"
         ],
         "operationId": "createTipo",
         "requestBody": {
@@ -85,7 +85,7 @@ video [Microservicio](https://drive.google.com/file/d/1YypSKAEk6OrXtfCyt8jMgdv5Y
     "/metodopago/create": {
       "post": {
         "tags": [
-          "metodo-pago-controller"
+          "metodo-pago-controllers"
         ],
         "operationId": "createTipo_1",
         "requestBody": {
@@ -115,7 +115,7 @@ video [Microservicio](https://drive.google.com/file/d/1YypSKAEk6OrXtfCyt8jMgdv5Y
     "/transaction/{id}": {
       "get": {
         "tags": [
-          "transacction-controller"
+          "transacction-controllers"
         ],
         "operationId": "getMetodoPago",
         "parameters": [
@@ -148,7 +148,7 @@ video [Microservicio](https://drive.google.com/file/d/1YypSKAEk6OrXtfCyt8jMgdv5Y
     "/transacction-list": {
       "get": {
         "tags": [
-          "transacction-controller"
+          "transacction-controllers"
         ],
         "operationId": "getListAllTipoPropiedades",
         "responses": {
@@ -171,7 +171,7 @@ video [Microservicio](https://drive.google.com/file/d/1YypSKAEk6OrXtfCyt8jMgdv5Y
     "/metodopago/{id}": {
       "get": {
         "tags": [
-          "metodo-pago-controller"
+          "metodo-pago-controllers"
         ],
         "operationId": "getMetodoPago_1",
         "parameters": [
@@ -204,7 +204,7 @@ video [Microservicio](https://drive.google.com/file/d/1YypSKAEk6OrXtfCyt8jMgdv5Y
     "/metodopago-list": {
       "get": {
         "tags": [
-          "metodo-pago-controller"
+          "metodo-pago-controllers"
         ],
         "operationId": "getListAllTipoPropiedades_1",
         "responses": {

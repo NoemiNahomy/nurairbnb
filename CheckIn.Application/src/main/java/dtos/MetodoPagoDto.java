@@ -1,7 +1,6 @@
 package dtos;
 
 import java.util.UUID;
-
 public class MetodoPagoDto {
 
   public UUID id;
