@@ -29,7 +29,7 @@ public class MetodoPagoControllerTest {
     }
 
     @Test
-    void testGetSeatsByFlight() {
+    void testGetMetodoPagoById() {
         List<MetodoPagoDto> seatDtos = new ArrayList<>();
         MetodoPagoDto dto = new MetodoPagoDto(UUID.randomUUID(),"test" , "T");
         seatDtos.add(dto);

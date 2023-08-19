@@ -21,8 +21,8 @@ public class MetodoPagoDto {
       "{" +
       "detalle:" +
       detalle +
-      ", type:'" +
-      tipo + '}'
+      ", type:" +
+      tipo + "}"
     );
   }
 }
