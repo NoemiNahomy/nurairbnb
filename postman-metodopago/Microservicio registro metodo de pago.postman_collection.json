@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "fde3cab2-d552-4bf4-86fc-402148507fa4",
+		"name": "Microservicio registro metodo de pago",
+		"description": "Metodos:\n\n- Lista propiedades\n    \n- Registrar propiedad",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11554263",
+		"_collection_link": "https://motor-core.postman.co/workspace/ed49473f-9ab2-42fb-89e9-9c046622896c/collection/11554263-fde3cab2-d552-4bf4-86fc-402148507fa4?action=share&source=collection_link&creator=11554263"
+	},
+	"item": [
+		{
+			"name": "listar metodo de pago",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is an array with at least one element\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('array').that.is.not.empty;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Each element in the response has a non-empty 'id' field\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    responseData.forEach(function (element) {\r",
+							"        pm.expect(element.id).to.exist.and.to.have.lengthOf.at.least(1, \"Value should not be empty\");\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Each element in the response has a non-empty 'detalle' field\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"\r",
+							"    pm.expect(responseData[0].detalle.length).to.be.above(1);\r",
+							"    \r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Each element in the response has a non-empty 'tipo' field\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    responseData.forEach(function (propiedad) {\r",
+							"        pm.expect(propiedad.tipo).to.exist.and.to.have.lengthOf.at.least(1, \"Value should not be empty\");\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "{{URL_PRINCIPAL}}/metodopago-list",
+					"host": [
+						"{{URL_PRINCIPAL}}"
+					],
+					"path": [
+						"metodopago-list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create metodo de pago",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var items = JSON.parse(pm.environment.get(\"items\"));\r",
+							"var indexActual = pm.environment.get(\"indexActual\");\r",
+							"if(indexActual >= items.length){\r",
+							"    indexActual = 0;\r",
+							"}\r",
+							"var item = items[indexActual];\r",
+							"pm.environment.set(\"id\", item.id);\r",
+							"pm.environment.set(\"detalle\", item.detalle);\r",
+							"pm.environment.set(\"tipo\", item.tipo);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var indexActual = pm.environment.get(\"indexActual\");\r",
+							"var items = JSON.parse(pm.environment.get(\"items\"));\r",
+							"var item = items[indexActual];\r",
+							"\r",
+							"if(indexActual < items.length-1){\r",
+							"    pm.test(\"Status code is 200\", function () {\r",
+							"        pm.response.to.have.status(200);\r",
+							"    });\r",
+							"\r",
+							"    pm.test(\"Response has required fields\", function () {\r",
+							"        const responseData = pm.response.json();\r",
+							"\r",
+							"        pm.expect(responseData).to.be.an('object');\r",
+							"        pm.expect(responseData.id).to.exist;\r",
+							"        pm.expect(responseData.detalle).to.exist;\r",
+							"        pm.expect(responseData.tipo).to.exist;\r",
+							"    });\r",
+							"\r",
+							"    pm.test(\"Detalle is a non-empty string\", function () {\r",
+							"        const responseData = pm.response.json();\r",
+							"        pm.expect(responseData).to.be.an('object');\r",
+							"        pm.expect(responseData.detalle).to.exist.and.to.be.a('string').and.to.not.be.empty;\r",
+							"    });\r",
+							"\r",
+							"    pm.test(\"La respuesta contiene un UUID valido en el objeto de respuesta\", function () {\r",
+							"        const responseData = pm.response.json();\r",
+							"        const uuidRegex = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;\r",
+							"        pm.expect(responseData.id).to.match(uuidRegex);\r",
+							"    });\r",
+							"}else{\r",
+							"        pm.test(\"Detalle is a not empty Error\", function () {\r",
+							"        const responseData = pm.response.json();\r",
+							"        console.log(responseData);\r",
+							"        //pm.expect(responseData.nombre).to.be.equals('Macoro 1');\r",
+							"        pm.expect(responseData.detalle).to.exist.and.to.be.a('string').and.to.be.not.empty;\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"indexActual = parseInt(indexActual) + 1;\r",
+							"if (indexActual >= items.length) {\r",
+							"    indexActual = 0;\r",
+							"}\r",
+							"pm.environment.set(\"indexActual\", indexActual);\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"{{id}}\",\r\n  \"detalle\": \"{{detalle}}\",\r\n  \"tipo\": \"{{tipo}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{URL_PRINCIPAL}}/metodopago/create",
+					"host": [
+						"{{URL_PRINCIPAL}}"
+					],
+					"path": [
+						"metodopago",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
