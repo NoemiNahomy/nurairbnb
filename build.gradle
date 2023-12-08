@@ -32,12 +32,12 @@ subprojects {
                     TestLogEvent.SKIPPED
         }
     }
-    jacocoTestReport {
+   /* jacocoTestReport {
         dependsOn test
         reports {
             xml.enabled true
         }
-    }
+    }*/
 
 }
 project(':ShareKernel') {
