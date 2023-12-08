@@ -3,7 +3,7 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
     id 'java'
-    id "org.sonarqube" version "3.4.0.2513"
+    id "org.sonarqube" version "4.4.1.3373"
     id("com.github.johnrengelman.shadow") version "7.0.0"
     id 'idea'
 }
@@ -75,10 +75,10 @@ project('CheckInApi') {
     }
 }
 
-sonarqube {
+sonar {
     properties {
-        property "sonar.projectKey", "javiervpr_airline"
-        property "sonar.organization", "javiervpr"
+        property "sonar.projectKey", "nurairbnb_nurairbnb"
+        property "sonar.organization", "nurairbnb"
         property "sonar.host.url", "https://sonarcloud.io"
     }
 }
