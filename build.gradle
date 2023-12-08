@@ -77,8 +77,8 @@ project('CheckInApi') {
 
 sonar {
     properties {
-        property "sonar.projectKey", "nurairbnb_nurairbnb"
-        property "sonar.organization", "nurairbnb"
+        property "sonar.projectKey", "NoemiNahomy_nurairbnb"
+        property "sonar.organization", "noeminahomy"
         property "sonar.host.url", "https://sonarcloud.io"
     }
 }
