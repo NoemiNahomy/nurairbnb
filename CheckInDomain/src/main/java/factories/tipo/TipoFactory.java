@@ -1,11 +1,9 @@
 package factories.tipo;
 
 import core.BusinessRuleValidationException;
-import model.Propiedad;
+import java.util.UUID;
 import model.TipoPropiedad;
 
-import java.util.UUID;
-
 public interface TipoFactory {
-    TipoPropiedad create(UUID id, String nombre) throws BusinessRuleValidationException;
+  TipoPropiedad create(UUID id, String nombre) throws BusinessRuleValidationException;
 }

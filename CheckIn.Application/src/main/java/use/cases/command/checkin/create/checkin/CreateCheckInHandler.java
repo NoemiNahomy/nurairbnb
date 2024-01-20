@@ -6,7 +6,6 @@ import dtos.CheckInDto;
 import factories.check.in.CheckInFactory;
 import factories.check.in.CreateCheckIn;
 import factories.propiedad.PropiedadFactory;
-
 import java.util.List;
 import java.util.UUID;
 import model.CheckIn;
@@ -19,8 +18,7 @@ import repositories.PropiedadRepository;
 import utils.CheckInMapper;
 
 @Component
-public class CreateCheckInHandler
-  implements Command.Handler<CreateCheckInCommand, CheckInDto> {
+public class CreateCheckInHandler implements Command.Handler<CreateCheckInCommand, CheckInDto> {
 
   private final CheckInRepository checkInRepository;
   private final PropiedadRepository propiedadRepository;
@@ -29,10 +27,9 @@ public class CreateCheckInHandler
   private final PersonaRepository personaRepository;
 
   public CreateCheckInHandler(
-    CheckInRepository checkInRepository,
-    PropiedadRepository seatRepository,
-    PersonaRepository passangerRepository
-  ) {
+      CheckInRepository checkInRepository,
+      PropiedadRepository seatRepository,
+      PersonaRepository passangerRepository) {
     this.checkInRepository = checkInRepository;
     this.propiedadRepository = seatRepository;
     this.personaRepository = passangerRepository;
@@ -43,28 +40,22 @@ public class CreateCheckInHandler
   @Override
   public CheckInDto handle(CreateCheckInCommand request) {
     try {
-      CheckIn checkIn = checkInRepository.findByPersonAndId(
-        UUID.fromString(request.checkInDto.persona.id),
-        UUID.fromString(request.checkInDto.propiedadId)
-      );
+      CheckIn checkIn =
+          checkInRepository.findByPersonAndId(
+              UUID.fromString(request.checkInDto.persona.id),
+              UUID.fromString(request.checkInDto.propiedadId));
       if (checkIn != null) {
         return CheckInMapper.from(checkIn);
       }
       Persona passanger =
-        this.personaRepository.get(
-            UUID.fromString(request.checkInDto.persona.id)
-          );
+          this.personaRepository.get(UUID.fromString(request.checkInDto.persona.id));
 
-      List<Propiedad> avaibleSeats = propiedadRepository.findPropiedadById(
-        UUID.fromString(request.checkInDto.propiedadId)
-      );
+      List<Propiedad> avaibleSeats =
+          propiedadRepository.findPropiedadById(UUID.fromString(request.checkInDto.propiedadId));
 
       checkIn =
-        checkInFactory.create(
-          UUID.fromString(request.checkInDto.propiedadId),
-          avaibleSeats,
-          passanger
-        );
+          checkInFactory.create(
+              UUID.fromString(request.checkInDto.propiedadId), avaibleSeats, passanger);
       checkInRepository.update(checkIn);
       return CheckInMapper.from(checkIn);
     } catch (BusinessRuleValidationException e) {

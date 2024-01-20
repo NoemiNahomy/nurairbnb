@@ -3,16 +3,15 @@ package use.cases.command.propiedades.list;
 import an.awesome.pipelinr.Command;
 import core.BusinessRuleValidationException;
 import dtos.PropiedadDto;
+import java.util.List;
 import model.Propiedad;
 import org.springframework.stereotype.Component;
 import repositories.PropiedadRepository;
 import utils.PropiedadMapper;
 
-import java.util.List;
-
 @Component
 public class GetPropiedadesHandler
-        implements Command.Handler<GetPropiedadesQuery, List<PropiedadDto>> {
+    implements Command.Handler<GetPropiedadesQuery, List<PropiedadDto>> {
 
   private final PropiedadRepository propiedadRepository;
 

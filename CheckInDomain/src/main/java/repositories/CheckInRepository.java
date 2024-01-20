@@ -9,6 +9,5 @@ public interface CheckInRepository {
 
   CheckIn get(UUID id);
 
-  CheckIn findByPersonAndId(UUID passenger, UUID checkIn)
-    throws BusinessRuleValidationException;
+  CheckIn findByPersonAndId(UUID passenger, UUID checkIn) throws BusinessRuleValidationException;
 }

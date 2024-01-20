@@ -9,11 +9,7 @@ import model.Propiedad;
 public class CreateCheckIn implements CheckInFactory {
 
   @Override
-  public CheckIn create(
-    UUID flightId,
-    List<Propiedad> avaiblePropiedades,
-    Persona persona
-  ) {
+  public CheckIn create(UUID flightId, List<Propiedad> avaiblePropiedades, Persona persona) {
     return new CheckIn(flightId, avaiblePropiedades, persona);
   }
 }

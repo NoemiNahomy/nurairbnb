@@ -9,7 +9,6 @@ public class TransaccionPago extends Entity {
   private String descripcion;
   private Double monto;
 
-
   public TransaccionPago(UUID code, String descripcion, Double monto) {
     this.code = code;
     this.descripcion = descripcion;

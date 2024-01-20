@@ -1,7 +1,13 @@
 package use.cases.command.transaction.create.get;
 
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
 import core.BusinessRuleValidationException;
 import dtos.TransactionPagoDto;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 import model.TransaccionPago;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,17 +15,9 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import repositories.TransactionPagoRepository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-
 public class GetTransactionHandlerTest {
 
-  @Mock
-  private TransactionPagoRepository mockRepository;
+  @Mock private TransactionPagoRepository mockRepository;
 
   private GetTransactionHandler handler;
 
@@ -43,5 +41,4 @@ public class GetTransactionHandlerTest {
     assertNotNull(result);
     assertEquals(fakeTransactions.size(), result.size());
   }
-
 }

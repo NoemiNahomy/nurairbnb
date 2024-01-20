@@ -1,6 +1,7 @@
 package dtos;
 
 import java.util.UUID;
+
 public class MetodoPagoDto {
 
   public UUID id;
@@ -9,7 +10,7 @@ public class MetodoPagoDto {
 
   public MetodoPagoDto() {}
 
-  public MetodoPagoDto(UUID id,String detalle, String tipo) {
+  public MetodoPagoDto(UUID id, String detalle, String tipo) {
     this.id = id;
     this.detalle = detalle;
     this.tipo = tipo;
@@ -17,12 +18,6 @@ public class MetodoPagoDto {
 
   @Override
   public String toString() {
-    return (
-      "{" +
-      "detalle:" +
-      detalle +
-      ", type:" +
-      tipo + "}"
-    );
+    return ("{" + "detalle:" + detalle + ", type:" + tipo + "}");
   }
 }

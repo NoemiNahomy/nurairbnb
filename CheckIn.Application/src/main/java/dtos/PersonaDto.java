@@ -15,14 +15,8 @@ public class PersonaDto {
 
   public PersonaDto() {}
 
-  public PersonaDto(
-    String id,
-    String name,
-    String lastname,
+  public PersonaDto(String id, String name, String lastname, String ci) {
 
-    String ci
-
-  ) {
     this.id = id;
     this.name = name;
     this.lastname = lastname;

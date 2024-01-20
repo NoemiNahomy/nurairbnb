@@ -11,16 +11,14 @@ import utils.TransaccionMapper;
 
 @Component
 public class CreateTransactionHandler
-  implements Command.Handler<CreateTransactionCommand, TransactionPagoDto> {
+    implements Command.Handler<CreateTransactionCommand, TransactionPagoDto> {
 
   private final TransactionPagoRepository metodoPagoRepository;
 
-    private final TransactionPagoFactory metodoPagoFactory;
+  private final TransactionPagoFactory metodoPagoFactory;
 
-  public CreateTransactionHandler(
-          TransactionPagoRepository metodoPagoRepository
+  public CreateTransactionHandler(TransactionPagoRepository metodoPagoRepository) {
 
-  ) {
     this.metodoPagoRepository = metodoPagoRepository;
 
     this.metodoPagoFactory = new TransactionPagoFactory();
@@ -30,14 +28,10 @@ public class CreateTransactionHandler
   public TransactionPagoDto handle(CreateTransactionCommand request) {
     try {
 
-
-     TransaccionPago metodo =
-             metodoPagoFactory.create(
-          request.metodo.code.toString(),
-          request.metodo.descripcion,
-                     request.metodo.monto
-        );
-        metodoPagoRepository.update(metodo);
+      TransaccionPago metodo =
+          metodoPagoFactory.create(
+              request.metodo.code.toString(), request.metodo.descripcion, request.metodo.monto);
+      metodoPagoRepository.update(metodo);
       return TransaccionMapper.from(metodo);
     } catch (BusinessRuleValidationException e) {
       return null;

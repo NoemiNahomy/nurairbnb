@@ -1,7 +1,7 @@
 package infraestructure.model;
 
 import java.util.UUID;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "metodopago")

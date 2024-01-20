@@ -10,8 +10,7 @@ import repositories.PersonaRepository;
 import utils.PersonaMapper;
 
 @Component
-public class GetPersonaHandler
-  implements Command.Handler<GetPersonaQuery, List<PersonaDto>> {
+public class GetPersonaHandler implements Command.Handler<GetPersonaQuery, List<PersonaDto>> {
 
   private final PersonaRepository passangerRepository;
 

@@ -3,16 +3,15 @@ package use.cases.command.transaction.create.list;
 import an.awesome.pipelinr.Command;
 import core.BusinessRuleValidationException;
 import dtos.TransactionPagoDto;
+import java.util.List;
 import model.TransaccionPago;
 import org.springframework.stereotype.Component;
 import repositories.TransactionPagoRepository;
 import utils.TransaccionMapper;
 
-import java.util.List;
-
 @Component
 public class GetListTransactionHandler
-        implements Command.Handler<GetListTransactionQuery, List<TransactionPagoDto>> {
+    implements Command.Handler<GetListTransactionQuery, List<TransactionPagoDto>> {
 
   private final TransactionPagoRepository propiedadRepository;
 

@@ -1,36 +1,34 @@
 package factories;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import core.BusinessRuleValidationException;
-import factories.metodopago.MetodoFactory;
 import factories.metodopago.MetodoPagoFactory;
+import java.util.UUID;
 import model.MetodoPago;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.UUID;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 public class MetodoPagoFactoryTest {
 
-    private MetodoPagoFactory metodoPagoFactory;
+  private MetodoPagoFactory metodoPagoFactory;
 
-    @BeforeEach
-    void setUp() {
-        metodoPagoFactory = new MetodoPagoFactory();
-    }
+  @BeforeEach
+  void setUp() {
+    metodoPagoFactory = new MetodoPagoFactory();
+  }
 
-    @Test
-    void testCreateMetodoPago() throws BusinessRuleValidationException {
-        UUID id = UUID.randomUUID();
-        String detalle = "Tarjeta PAYPAL";
-        String tipo = "T";
+  @Test
+  void testCreateMetodoPago() throws BusinessRuleValidationException {
+    UUID id = UUID.randomUUID();
+    String detalle = "Tarjeta PAYPAL";
+    String tipo = "T";
 
-        MetodoPago metodoPago = metodoPagoFactory.create(id, detalle, tipo);
+    MetodoPago metodoPago = metodoPagoFactory.create(id, detalle, tipo);
 
-        assertNotNull(metodoPago);
-        assertEquals(id, metodoPago.getId());
-        assertEquals(detalle, metodoPago.getDetalle());
-    }
+    assertNotNull(metodoPago);
+    assertEquals(id, metodoPago.getId());
+    assertEquals(detalle, metodoPago.getDetalle());
+  }
 }

@@ -7,6 +7,7 @@ public class PropiedadDto {
   public String nombre;
   public String estado;
   public double precio;
+
   public PropiedadDto() {}
 
   public PropiedadDto(UUID id, String nombre, String estado, double precio) {
@@ -15,5 +16,4 @@ public class PropiedadDto {
     this.estado = estado;
     this.precio = precio;
   }
-
 }

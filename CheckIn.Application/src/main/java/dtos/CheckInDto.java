@@ -15,14 +15,12 @@ public class CheckInDto {
   public CheckInDto() {}
 
   public CheckInDto(
-    String checkInId,
-    String propiedadId,
-    Date date,
-    PropiedadDto propiedad,
-
-    List<PropiedadDto> avaiblePropiedades,
-    PersonaDto passanger
-  ) {
+      String checkInId,
+      String propiedadId,
+      Date date,
+      PropiedadDto propiedad,
+      List<PropiedadDto> avaiblePropiedades,
+      PersonaDto passanger) {
     this.checkInId = checkInId;
     this.propiedadId = propiedadId;
     this.date = date;

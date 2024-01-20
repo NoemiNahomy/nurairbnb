@@ -11,7 +11,7 @@ import infraestructure.utils.PersonaUtils;
 import infraestructure.utils.PropiedadUtils;
 
 import java.util.*;
-import javax.transaction.Transactional;
+import jakarta.transaction.Transactional;
 import model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

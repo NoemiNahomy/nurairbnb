@@ -13,30 +13,17 @@ public class Persona extends Entity {
   private PersonNameValue lastname;
   private CIValue ci;
 
+  public Persona(String name, String lastname, String ci) throws BusinessRuleValidationException {
 
-  public Persona(
-
-    String name,
-    String lastname,
-
-    String ci
-
-  ) throws BusinessRuleValidationException {
     this.id = UUID.randomUUID();
     this.name = new PersonNameValue(name);
     this.lastname = new PersonNameValue(lastname);
     this.ci = new CIValue(ci);
-
   }
 
   public Persona(
-    UUID id,
-    String name,
-    String lastname,
-    Date birthday,
-    String ci,
-    boolean needAssistance
-  ) throws BusinessRuleValidationException {
+      UUID id, String name, String lastname, Date birthday, String ci, boolean needAssistance)
+      throws BusinessRuleValidationException {
     this.id = id;
     this.name = new PersonNameValue(name);
     this.lastname = new PersonNameValue(lastname);
@@ -51,9 +38,7 @@ public class Persona extends Entity {
     return lastname.getName();
   }
 
-
   public String getCi() {
     return ci.getCi();
   }
-
 }

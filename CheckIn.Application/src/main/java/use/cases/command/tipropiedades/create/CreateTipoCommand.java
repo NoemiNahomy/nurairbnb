@@ -1,7 +1,6 @@
 package use.cases.command.tipropiedades.create;
 
 import an.awesome.pipelinr.Command;
-import dtos.CheckInDto;
 import dtos.TipoPropiedadDto;
 
 public class CreateTipoCommand implements Command<TipoPropiedadDto> {

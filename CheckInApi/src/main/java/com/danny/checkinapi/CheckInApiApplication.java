@@ -5,10 +5,10 @@ import an.awesome.pipelinr.Notification;
 import an.awesome.pipelinr.Pipeline;
 import an.awesome.pipelinr.Pipelinr;
 import annotations.Generated;
-import infraestructure.repositories.propiedad.PropiedadJpaRepository;
 import infraestructure.repositories.MetodoPago.MetodoPagoJpaRepository;
 import infraestructure.repositories.check.in.CheckInJpaRepository;
 import infraestructure.repositories.persona.PersonaJpaRepository;
+import infraestructure.repositories.propiedad.PropiedadJpaRepository;
 import infraestructure.repositories.tipoPropiedad.TipoPropiedadJpaRepository;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
@@ -26,23 +26,26 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import repositories.*;
 
 @SpringBootApplication(
-  exclude = {
-    org.springframework.cloud.aws.autoconfigure.context.ContextInstanceDataAutoConfiguration.class,
-    org.springframework.cloud.aws.autoconfigure.context.ContextStackAutoConfiguration.class,
-    org.springframework.cloud.aws.autoconfigure.context.ContextRegionProviderAutoConfiguration.class,
-  }
-)
+    exclude = {
+      org.springframework.cloud.aws.autoconfigure.context.ContextInstanceDataAutoConfiguration
+          .class,
+      org.springframework.cloud.aws.autoconfigure.context.ContextStackAutoConfiguration.class,
+      org.springframework.cloud.aws.autoconfigure.context.ContextRegionProviderAutoConfiguration
+          .class,
+    })
 @ComponentScan(
-  basePackages = {
-    "controllers", "infraestructure.repositories", "use.cases", "event", "core",
-  }
-)
+    basePackages = {
+      "controllers",
+      "infraestructure.repositories",
+      "use.cases",
+      "event",
+      "core",
+    })
 @EntityScan("infraestructure.model")
-@EnableJpaRepositories(basePackages = { "infraestructure.repositories" })
+@EnableJpaRepositories(basePackages = {"infraestructure.repositories"})
 @EnableTransactionManagement
 @OpenAPIDefinition(info = @Info(title = "Check in Domain", version = "1.0.0"))
 @Generated
-
 public class CheckInApiApplication {
 
   public static void main(String[] args) {
@@ -59,12 +62,10 @@ public class CheckInApiApplication {
     return new PersonaJpaRepository();
   }
 
-
   @Bean(name = "metodoPagoRepository")
   public MetodoPagoRepository metodoPagoRepository() {
     return new MetodoPagoJpaRepository();
   }
-
 
   @Bean(name = "propiedadRepository")
   public PropiedadRepository propiedadRepository() {
@@ -73,9 +74,8 @@ public class CheckInApiApplication {
 
   @Bean(name = "tipoPropiedadRepository")
   public TipoPropiedadRepository tipoPropiedadRepository() {
-        return new TipoPropiedadJpaRepository();
+    return new TipoPropiedadJpaRepository();
   }
-
 
   @Bean
   public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
@@ -92,13 +92,12 @@ public class CheckInApiApplication {
 
   @Bean
   Pipeline pipeline(
-    ObjectProvider<Command.Handler> commandHandlers,
-    ObjectProvider<Notification.Handler> notificationHandlers,
-    ObjectProvider<Command.Middleware> middlewares
-  ) {
+      ObjectProvider<Command.Handler> commandHandlers,
+      ObjectProvider<Notification.Handler> notificationHandlers,
+      ObjectProvider<Command.Middleware> middlewares) {
     return new Pipelinr()
-      .with(commandHandlers::stream)
-      .with(notificationHandlers::stream)
-      .with(middlewares::orderedStream);
+        .with(commandHandlers::stream)
+        .with(notificationHandlers::stream)
+        .with(middlewares::orderedStream);
   }
 }

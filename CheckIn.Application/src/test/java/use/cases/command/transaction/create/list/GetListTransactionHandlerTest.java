@@ -1,6 +1,13 @@
 package use.cases.command.transaction.create.list;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
 import core.BusinessRuleValidationException;
 import dtos.TransactionPagoDto;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 import model.TransaccionPago;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,17 +15,9 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import repositories.TransactionPagoRepository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-
 public class GetListTransactionHandlerTest {
 
-  @Mock
-  private TransactionPagoRepository mockRepository;
+  @Mock private TransactionPagoRepository mockRepository;
 
   private GetListTransactionHandler handler;
 
@@ -31,7 +30,7 @@ public class GetListTransactionHandlerTest {
   @Test
   void testHandleSuccess() throws BusinessRuleValidationException {
     List<TransaccionPago> fakeTransactions = new ArrayList<>();
-    fakeTransactions.add(new TransaccionPago(UUID.randomUUID(),"pago", 100.0));
+    fakeTransactions.add(new TransaccionPago(UUID.randomUUID(), "pago", 100.0));
 
     when(mockRepository.getAll()).thenReturn(fakeTransactions);
     List<TransactionPagoDto> result = handler.handle(new GetListTransactionQuery());
