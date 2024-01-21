@@ -17,6 +17,13 @@ repositories {
 	mavenCentral()
 }
 
+group 'com.danny'
+version '1.0-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
+apply from: file('gradle/heroku/clean.gradle')
+
+
 dependencies {
 	implementation 'org.jacoco:org.jacoco.core:0.8.11'
 }
@@ -94,7 +101,7 @@ sonar {
 		property "sonar.projectKey", "NoemiNahomy_nurairbnb"
 		property "sonar.organization", "noeminahomy"
 		property "sonar.host.url", "https://sonarcloud.io"
-		property "sonar.token","362a82ca3c0308e02f260f2620a4802f81a84e69"
+		property "sonar.token","54e3fb17041a57d756d120cee12e5a05214d09a1"
 
 	}
 }
