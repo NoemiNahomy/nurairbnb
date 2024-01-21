@@ -1,6 +1,6 @@
 package controllers;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.anyObject;
 import static org.mockito.Mockito.when;
 
@@ -10,8 +10,8 @@ import dtos.MetodoPagoDto;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
