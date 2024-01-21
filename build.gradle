@@ -94,7 +94,7 @@ sonar {
 		property "sonar.projectKey", "NoemiNahomy_nurairbnb"
 		property "sonar.organization", "noeminahomy"
 		property "sonar.host.url", "https://sonarcloud.io"
-		//property "sonar.token","7734da45353a9c8d743a6ff1e5b08d944a35f6fe"
+		property "sonar.token","362a82ca3c0308e02f260f2620a4802f81a84e69"
 
 	}
 }

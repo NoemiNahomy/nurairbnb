@@ -4,21 +4,14 @@ import core.BusinessRuleValidationException;
 import infraestructure.model.MetodoPagoJpaModel;
 import infraestructure.repositories.MetodoPago.MetodoPagoCrudRepository;
 import infraestructure.repositories.MetodoPago.MetodoPagoJpaRepository;
-import infraestructure.utils.MetodoPagoUtils;
 import model.MetodoPago;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
-import org.springframework.data.util.Streamable;
-import org.springframework.stereotype.Repository;
-import repositories.MetodoPagoRepository;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-public class MetodoPagoJpaRepositoryTest {
+class MetodoPagoJpaRepositoryTest {
 
   @Mock
   private MetodoPagoCrudRepository mockCrudRepository;
