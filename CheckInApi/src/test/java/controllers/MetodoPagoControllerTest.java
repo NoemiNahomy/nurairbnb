@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-public class MetodoPagoControllerTest {
+class MetodoPagoControllerTest {
   @Mock Pipeline pipeline;
 
   private static final UUID FLIGHT_ID = UUID.randomUUID();
