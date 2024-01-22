@@ -11,4 +11,4 @@ RUN mkdir /logs
 COPY CheckInApi/build/libs/*.jar /
 
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "CheckInApi-1.0.jar", "--server.port=8080"]
+ENTRYPOINT ["java", "-jar", "check-in-1.0.jar", "--server.port=8080"]
