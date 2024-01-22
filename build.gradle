@@ -9,7 +9,6 @@ plugins {
 	id("com.github.johnrengelman.shadow") version "7.0.0"
 	id 'idea'
 	id 'com.diffplug.spotless' version '5.0.0'
-
 }
 
 
