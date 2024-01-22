@@ -50,10 +50,3 @@ spotless {
 		// Add other formatting rules if needed
 	}
 }
-
-task copyJarToBin {
-	copy {
-		from '../build/libs/CheckInApi-1.0.jar'
-		into "/build/libs/"
-	}
-}

@@ -110,6 +110,7 @@ spotless {
 		googleJavaFormat()
 	}
 }
+
 jar {
 	enabled = false
 	archiveClassifier=''
@@ -117,7 +118,7 @@ jar {
 
 task copyJarToBin {
 	copy {
-		from 'CheckInApi/build/libs/checkin-in-api-1.0.jar'
+		from 'CheckInApi/build/libs/check-in-api-1.0.jar'
 		into "/"
 	}
 }
