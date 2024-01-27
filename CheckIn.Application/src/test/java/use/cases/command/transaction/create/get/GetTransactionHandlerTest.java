@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import repositories.TransactionPagoRepository;
+import use.cases.command.transaccion.get.GetTransactionHandler;
 
 public class GetTransactionHandlerTest {
 

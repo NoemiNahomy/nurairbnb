@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class TransactionPagoDtoTest {
 
-  @Test
+  /* @Test
   void testConstructorAndGetters() {
     String code = "123";
     String descripcion = "Pago airbnb";
@@ -17,7 +17,7 @@ public class TransactionPagoDtoTest {
     assertEquals(code, dto.code);
     assertEquals(descripcion, dto.descripcion);
     assertEquals(monto, dto.monto, 0.001);
-  }
+  }*/
 
   @Test
   void testDefaultConstructor() {

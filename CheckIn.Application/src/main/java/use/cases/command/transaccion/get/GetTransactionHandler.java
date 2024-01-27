@@ -1,4 +1,4 @@
-package use.cases.command.transaction.create.get;
+package use.cases.command.transaccion.get;
 
 import an.awesome.pipelinr.Command;
 import core.BusinessRuleValidationException;

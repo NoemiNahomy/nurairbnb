@@ -1,4 +1,4 @@
-package use.cases.command.transaction.create.list;
+package use.cases.command.transaccion.list;
 
 import an.awesome.pipelinr.Command;
 import dtos.TransactionPagoDto;

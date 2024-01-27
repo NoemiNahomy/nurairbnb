@@ -5,11 +5,20 @@ import model.TransaccionPago;
 
 public final class TransaccionMapper {
 
-  public static TransactionPagoDto from(TransaccionPago seat) {
-    if (seat == null) return new TransactionPagoDto();
+  public static TransactionPagoDto from(TransaccionPago pago) {
+    if (pago == null) return new TransactionPagoDto();
     return new TransactionPagoDto(
-        seat.getCode() == null ? "" : seat.getCode().toString(),
-        seat.getDescripcion() == null ? "" : seat.getDescripcion(),
-        seat.getMonto() == null ? 0.0 : seat.getMonto());
+        pago.getCode().toString(),
+        pago.getDescripcion(),
+        pago.getMonto(),
+        pago.getEstado(),
+        pago.getMetodopagoId().toString(),
+        pago.getReservaId().toString(),
+        pago.getPropiedadId().toString(),
+        pago.getPersonaId().toString(),
+        pago.getFechaPago(),
+        pago.getNumeroTarjeta(),
+        pago.getFechaVencimiento(),
+        pago.getCvc());
   }
 }

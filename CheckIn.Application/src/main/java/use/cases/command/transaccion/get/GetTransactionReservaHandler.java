@@ -1,29 +1,30 @@
-package use.cases.command.transaction.create.list;
+package use.cases.command.transaccion.get;
 
 import an.awesome.pipelinr.Command;
 import core.BusinessRuleValidationException;
 import dtos.TransactionPagoDto;
-import java.util.List;
+import java.util.UUID;
 import model.TransaccionPago;
 import org.springframework.stereotype.Component;
 import repositories.TransactionPagoRepository;
 import utils.TransaccionMapper;
 
 @Component
-public class GetListTransactionHandler
-    implements Command.Handler<GetListTransactionQuery, List<TransactionPagoDto>> {
+public class GetTransactionReservaHandler
+    implements Command.Handler<GetTransactionReservaQuery, TransactionPagoDto> {
 
   private final TransactionPagoRepository propiedadRepository;
 
-  public GetListTransactionHandler(TransactionPagoRepository propiedadRepository) {
+  public GetTransactionReservaHandler(TransactionPagoRepository propiedadRepository) {
     this.propiedadRepository = propiedadRepository;
   }
 
   @Override
-  public List<TransactionPagoDto> handle(GetListTransactionQuery command) {
+  public TransactionPagoDto handle(GetTransactionReservaQuery command) {
     try {
-      List<TransaccionPago> propiedad = this.propiedadRepository.getAll();
-      return propiedad.stream().map(TransaccionMapper::from).toList();
+      TransaccionPago propiedades =
+          propiedadRepository.findByReservaId(UUID.fromString(command.reservaId));
+      return TransaccionMapper.from(propiedades);
     } catch (BusinessRuleValidationException e) {
       e.printStackTrace();
       return null;
