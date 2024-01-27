@@ -1,0 +1,6 @@
+{
+  "id": "${id}",
+  "detalle": "${detalle}",
+  "tipo": "${tipo}"
+}
+
